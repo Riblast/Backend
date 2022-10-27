@@ -28,3 +28,13 @@ class Usuario {
 }
 
 const usuario = new Usuario("Joaquin", "Pereira", [{nombre: "El nombre del viento", autor: "Patrick Rothfuss"}], ["Rex"])
+
+console.log(usuario)
+console.log("Añadiendo mascota y libro...")
+usuario.addMascota("Pepito")
+usuario.addBook("Insignia", "S. J. Kincaid")
+console.log(usuario)
+console.log("Nombre completo = " + usuario.getFullName())
+console.log("Cantidad de mascotas = " + usuario.countMascotas())
+console.log("Nombre de los libros = " + usuario.getBookNames())
+
