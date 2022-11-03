@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "itemName": "Cookies de avena",
+        "itemPrice": 200,
+        "url": "url"
+    },
+    {
+        "id": 2,
+        "itemName": "Crackers de avena",
+        "itemPrice": 200,
+        "url": "url"
+    },
+    {
+        "id": 3,
+        "itemName": "Alfajor",
+        "itemPrice": 200,
+        "url": "url"
+    },
+    {
+        "id": 4,
+        "itemName": "Barritas energeticas",
+        "itemPrice": 200,
+        "url": "url"
+    },
+    {
+        "id": 5,
+        "itemName": "Budin integral",
+        "itemPrice": 200,
+        "url": "url"
+    },
+    {
+        "id": 6,
+        "itemName": "Hamburguesas veganas",
+        "itemPrice": 200,
+        "url": "url"
+    },
+    {
+        "itemName": "Pizzeta integral",
+        "itemPrice": 200,
+        "id": 7,
+        "url": "url"
+    },
+    {
+        "itemName": "Pizzeta integral",
+        "itemPrice": 200,
+        "id": 8,
+        "url": "url"
+    }
+]
