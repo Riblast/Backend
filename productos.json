@@ -35,16 +35,9 @@
         "itemPrice": 200,
         "url": "url"
     },
-    {
+    {   "id": 7,
         "itemName": "Pizzeta integral",
         "itemPrice": 200,
-        "id": 7,
-        "url": "url"
-    },
-    {
-        "itemName": "Pizzeta integral",
-        "itemPrice": 200,
-        "id": 8,
         "url": "url"
     }
 ]

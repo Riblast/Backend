@@ -1,32 +1,18 @@
-const Contenedor = require('./Clase')
+
 const express = require('express')
+const router = require('./router')
 
 const app = express()
-
 const PORT = 8080 || process.env.PORT
 
-const productos = new Contenedor('./productos.json')
 
-app.get('/', (req, res) => {
-    res.send(`<h1>Home</h1>`)
-})
+app.use(express.urlencoded({extended: true})); 
+app.use(express.json())
 
-app.get('/productos', async (req, res) => {
+app.use(express.static('public'))
+app.use('/api/productos', router)
 
-    const prods = await productos.getAll()
-
-    res.send({productos: prods})
-})
-
-app.get('/productoRandom', async (req, res) => {
-    
-    const prods = await productos.getAll()
-    const randomProd = parseInt(Math.random() * prods.length)
-    
-    res.send({producto: prods[randomProd]})
-})
-
-const server = app.listen(PORT, () => {
+const server = app.listen(PORT, () => { 
     console.log(`server iniciado en puerto ${PORT}`)
 })
 
