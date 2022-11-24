@@ -1,19 +1,20 @@
 const express = require('express')
-const Contenedor = require('./Clase')
+const Contenedor = require('../Clase')
 
 const { Router } = express
 
 const router = new Router()
-const productos = new Contenedor('./productos.json')
+const productos = new Contenedor('./src/productos.json')
 
 
 router.get('/', async (req, res) => {
 
     const prods = await productos.getAll()
 
-    res.send({productos: prods})
+    res.render('products', {products: prods, empty: prods.length === 0 ? true : false})
 })
 
+router.get('/',)
 router.get('/:id', async (req, res) => {
     const id = parseInt(req.params.id)
     const prod = await productos.getById(id)
@@ -25,8 +26,7 @@ router.post('/', async (req, res) => {
 
     const item = req.body
     const prod = await productos.save(item)
-
-    res.send({producto: prod})
+    res.redirect('/')
 })
 
 router.put('/:id', async (req, res) => {

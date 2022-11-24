@@ -1,0 +1,24 @@
+<h1>Vista productos</h1>
+{{#if empty}}
+<h2>Lista de productos vacía</h2>
+{{else}}
+<table>
+    <thead>
+        <tr>
+            <td>Nombre</td>
+            <td>Precio</td>
+            <td>Foto</td>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each products}}
+        <tr>
+            <td>{{this.itemName}}</td>
+            <td>{{this.itemPrice}}</td>
+            <td><img src={{this.url}}></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{/if}}
+<a href="/"><button>Agregar productos</button></a>

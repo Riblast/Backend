@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="esp">
+<%- include("./partials/head.ejs") %>
+
+    <body>
+        <h1>Agregar un producto</h1>
+        <form action="/productos" method="post" target="">
+            <div>
+                <label for="itemName">Enter product: </label>
+                <input type="text" name="itemName" id="itemName" required>
+            </div>
+            <div>
+                <label for="itemPrice">Enter price: </label>
+                <input type="number" name="itemPrice" id="itemPrice" required>
+            </div>
+            <div>
+                <label for="url">Enter thumbnail url: </label>
+                <input type="text" name="url" id="url" required>
+            </div>
+            <div>
+                <input type="submit" value="Guardar">
+            </div>
+        </form>
+        <a href="/productos"><button>Ver productos</button></a>
+    </body>
+
+</html>
