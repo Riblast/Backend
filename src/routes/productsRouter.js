@@ -1,39 +1,42 @@
-import { Router } from "express"
+import { Router } from 'express'
+import { productsDao as productsApi } from '../daos/index.js'
+
+const productsRouter = new Router()
 
 productsRouter.get('/', async (req, res) =>{
-    const prods = await productService.getAll()
+    const prods = await productsApi.getAll()
 
     res.json(prods)
 })
 
-productsRouter.get('/:id', async (req, res) => {
-    const id = parseInt(req.params.id)
-    const prod = await productService.getById(id)
+productsRouter.get('/:id', async (req, res) =>{
+    const id = req.params.id
+    const prod = await productsApi.getById(id)
 
     res.json({producto: prod})
 })
 
-productsRouter.post('/', onlyAdmin, async (req, res) =>{
+productsRouter.post('/', async (req, res) =>{
     const item = req.body
-    const prod = await productService.save(item)
+    const prod = await productsApi.save(item)
 
     res.json({productos: prod})
 })
 
-productsRouter.put('/:id', onlyAdmin, async (req, res) =>{
-    const id = parseInt(req.params.id)
+productsRouter.put('/:id', async (req, res) =>{
+    const id = req.params.id
     const item = req.body
-    const updatedProd = await productService.updateById(id, item)
+    const updatedProd = await productsApi.updateById(id, item)
 
     res.json({producto: updatedProd})
 })
 
-productsRouter.delete('/:id', onlyAdmin, async (req, res) => {
+productsRouter.delete('/:id', async (req, res) => {
 
-    const id = parseInt(req.params.id)
-    const prod = await productService.deleteById(id)
+    const id = req.params.id
+    const prod = await productsApi.deleteById(id)
 
     res.json(prod)
 })
 
-module.exports = productsRouter
+export default productsRouter

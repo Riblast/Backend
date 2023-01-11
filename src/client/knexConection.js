@@ -1,4 +1,4 @@
-import knex from "knex"
+import knex from 'knex'
 
 const knexConection = knex({
     // client: "mysql",
@@ -9,7 +9,7 @@ const knexConection = knex({
     //     database: "db_coderhouse"
     // }
 
-    client: "sqlite3",
+    client: 'sqlite3',
     connection: {
         filename: './DB/ecommerce.sqlite'
     }
