@@ -1,6 +1,5 @@
 import mongoose from 'mongoose'
 import config from '../config.js'
-import { asPOJO, renameField, removeField } from './utils/ObjectUtils.js'
 
 mongoose.connect(config.mongodb.cnxStr, config.mongodb.options)
 
@@ -15,11 +14,9 @@ class MongodbContainer {
 
     async save(item) {
         try {
-            let doc = await this.collection.create(item)
-            doc = asPOJO(doc)
-            renameField(doc, '_id', 'id')
-            removeField(doc, '__v')
-            return doc
+            const product = new this.collection(item)
+            const result = await product.save()
+            return result
         } catch (error) {
             console.log(error)
         }
@@ -27,14 +24,13 @@ class MongodbContainer {
 
     async getById(id) {
         try {
-            const docs = await this.collection.find({ '_id': id }, { __v: 0 })
-            if(docs.length === 0){
+            const data = await this.collection.find({ '_id': id })
+            if(data){
+                return data
+            }
+            else{
                 return ERROR
             }
-            else {
-                const result = renameField(asPOJO(docs[0]), '_id', 'id')
-                return result
-            }        
         } catch (error) {
             console.log(error)
         }
@@ -42,9 +38,8 @@ class MongodbContainer {
 
     async getAll() {
         try {
-            let docs = await this.collection.find({}).lean()
-            docs = docs.map(doc => renameField(doc, '_id', 'id'))
-            return docs
+            const data = await this.collection.find()
+            return data
         } catch (error) {
             console.log(error)
         }
@@ -52,26 +47,18 @@ class MongodbContainer {
 
     async deleteById(id) {
         try {
-            const { n, nDeleted } = await this.collection.deleteOne({ '_id': id })
-            if (n === 0 || nDeleted === 0) {
-                return ERROR
-            }
+            await this.collection.deleteOne({_id: id})
+            return 'Objeto eliminado'
         } catch (error) {
             console.log(error)
         }
     }
     async updateById(id, item){
         try {
-            renameField(item)
-            const { n, nModified } = await this.collection.replaceOne({ '_id': id}, item)
-            if(n === 0 || nModified === 0) {
-                return ERROR
-            }
-            else {
-                renameField(item, '_id', 'id')
-                removeField(item, '__v')
-                return asPOJO(item)
-            }
+            await this.collection.updateOne({_id: id},{
+                $set: item
+            })
+            return 'Objeto actualizado'
         } catch (error) {
             console.log(error)
         }

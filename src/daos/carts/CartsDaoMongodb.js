@@ -7,6 +7,11 @@ class CartsDaoMongodb extends MongodbContainer {
     async save(cart = { products: []}) {
         return super.save(cart)
     }
+    async updateById(id, item) {
+        await this.collection.updateOne({'_id': id },{
+            $push: { products: item }
+        })
+    }
 }
 
 export default CartsDaoMongodb

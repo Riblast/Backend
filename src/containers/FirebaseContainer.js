@@ -66,7 +66,12 @@ class FirebaseContainer {
         try {
             const doc = await this.collection.doc(id).get()
             if(doc.exists){
-                return this.collection.doc(id).set(object)
+                let array = []
+                array.push(doc.data().products, object)
+                console.log(array)
+                await this.collection.doc(id).set({
+                    products: array
+                })
             }
             else return ERROR
         } catch (error) {
