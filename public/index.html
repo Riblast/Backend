@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desafío 4</title>
+    <script src="https://cdn.jsdelivr.net/npm/normalizr@3.6.1/dist/normalizr.browser.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
 </head>
 
 <body>
@@ -44,13 +46,19 @@
         <h2>Mensajes</h2>
         <form>
             <div >
-                <input type="email" id="user" placeholder="Ingresá tu email" required>
+                <input type="email" id="email" placeholder="Ingresá tu email" required>
                 <input type="text" id="message" placeholder="Mensaje" required>
+                <input type="text" id="name" placeholder="Ingresá tu nombre">
+                <input type="text" id="lastName" placeholder="Ingresá tu apellido">
+                <input type="text" id="age" placeholder="Ingresa tu edad">
+                <input type="text" id="username" placeholder="Ingresa tu nombre de usuario">
+                <input type="text" id="avatar" placeholder="Ingresá una foto">
                 <button onclick="return addMessage(this)">enviar</button>
             </div>
         </form>
         <div id="mensajes"></div>
     </div>
+    <script src="./main.js"></script>
 </body>
 
 </html>
