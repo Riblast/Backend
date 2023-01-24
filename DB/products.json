@@ -1,2 +1,20 @@
 [
+    {
+        "id": 1,
+        "productName": "Papas",
+        "productPrice": "12",
+        "productPhoto": ""
+    },
+    {
+        "id": 2,
+        "productName": "Papas",
+        "productPrice": "12",
+        "productPhoto": ""
+    },
+    {
+        "id": 3,
+        "productName": "pizza",
+        "productPrice": "32",
+        "productPhoto": ""
+    }
 ]

@@ -19,7 +19,6 @@ const renderProducts = (data) => {
     const html = data.map(product => {
         return (`<tr><td><strong>${product.productName}</strong></td> <td><em>$${product.productPrice}</em></td> <td><img src="${product.productPhoto}" height="35px"></td></tr>`)
     }).join(' ')
-
     document.getElementById('productos').innerHTML = html
 }
 
@@ -28,7 +27,6 @@ const textSchema = new normalizr.schema.Entity('text')
 const messagesSchema = new normalizr.schema.Entity('messages', {author: authorSchema, text: [textSchema]})
 
 const renderMessages = (data) => {
-    console.log(data)
     const html = data.map(message => {
         return (`<div><img src="${message.author.avatar}" height="30px"><span>${message.author.email}</span><strong>${message.author.name} ${message.author.lastName}</strong><span>${new Date().toLocaleDateString('es-ES')} ${new Date().toLocaleTimeString()}</span> : <em>${message.text}</em></div>`)
     }).join(' ')
@@ -66,9 +64,20 @@ const addMessage = () =>{
 }
 
 socket.on('server: loadMessages', data => {
-    let messageDenormalized = normalizr.denormalize(data.result, [messagesSchema], data.entities)
-    renderMessages(messageDenormalized)
+    let denormalizedMessage = normalizr.denormalize(data.result, [messagesSchema], data.entities)
+    
+    let normalizedMessageSize = JSON.stringify(data).length
+    console.log(data, normalizedMessageSize)
+    let denormalizedMessageSize = JSON.stringify(denormalizedMessage).length
+    console.log(denormalizedMessage, denormalizedMessageSize)
+
+    let compressionPercentage = parseInt((normalizedMessageSize * 100) / denormalizedMessageSize)
+    document.getElementById('compresionStatus').innerText = compressionPercentage
+    renderMessages(denormalizedMessage)
 })
+
+
+
 
 
 socket.on('server: loadProducts', data => {

@@ -1,26 +1,2 @@
 [
-    {
-        "author": {
-            "email": "User@example.com",
-            "name": "franco",
-            "lastName": "fleitas",
-            "age": "67",
-            "username": "God_Duvalin",
-            "avatar": ""
-        },
-        "text": "nasnnasnasnsa",
-        "id": 2
-    },
-    {
-        "author": {
-            "email": "fa@a.com",
-            "name": "jose",
-            "lastName": "blanco",
-            "age": "94",
-            "username": "",
-            "avatar": ""
-        },
-        "text": "nasnnasnasnsa",
-        "id": 3
-    }
 ]

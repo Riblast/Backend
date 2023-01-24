@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desafío 4</title>
-    <script src="https://cdn.jsdelivr.net/npm/normalizr@3.6.1/dist/normalizr.browser.min.js"></script>
+    <title>Home</title>
     <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/normalizr@3.6.1/dist/normalizr.browser.min.js"></script>
 </head>
-
 <body>
+    <div>
+        <h1 class="welcomeMessage"></h1>
+        <button onclick="location.href='/logout'">
+            Desloguear
+        </button>
+    </div>
     <form>
         <div>
             <label for="itemName">Enter product: </label>
@@ -44,6 +48,7 @@
     </div>
     <div>
         <h2>Mensajes</h2>
+        <h3>Centro de Mensajes (Compresión: <span id="compresionStatus"></span>%)</h3>
         <form>
             <div >
                 <input type="email" id="email" placeholder="Ingresá tu email" required>
@@ -58,7 +63,6 @@
         </form>
         <div id="mensajes"></div>
     </div>
-    <script src="./main.js"></script>
+    <script src="main.js"></script>
 </body>
-
 </html>
