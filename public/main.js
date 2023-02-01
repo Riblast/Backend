@@ -76,10 +76,6 @@ socket.on('server: loadMessages', data => {
     renderMessages(denormalizedMessage)
 })
 
-
-
-
-
 socket.on('server: loadProducts', data => {
     renderProducts(data)
 })

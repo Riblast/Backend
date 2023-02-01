@@ -1,6 +1,6 @@
-import config from '../config.js'
+import config from '../config/databaseConfig.js'
 
-import FileContainer from '../containers/FileContainer.js'
+import FileContainer from '../services/FileContainer.js'
 
 const MessagesApi = new FileContainer(`${config.fileSystem.path}/messages.json`)
 
