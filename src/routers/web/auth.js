@@ -80,13 +80,13 @@ authWebRouter.get('/logout', (req, res) => {
     if (name) {
         req.session.destroy(err => {
             if (!err) {
-                res.render(path.join(process.cwd(), '/public/logout.html'), { name })
+                res.sendFile(path.join(process.cwd(), '/public/logout.html'), { name })
             } else {
-                res.redirect('/')
+                res.redirect('/home')
             }
         })
     } else {
-        res.redirect('/')
+        res.redirect('/home')
     }
 })
 

@@ -7,7 +7,6 @@ import config from './src/config/databaseConfig.js'
 import { Server as HttpServer } from 'http'
 import { Server as Socket } from 'socket.io'
 
-import auth from './src/routers/web/auth.js'
 import authWebRouter from './src/routers/web/auth.js'
 import homeWebRouter from './src/routers/web/home.js'
 import productsApiRouter from './src/routers/api/products.js'
@@ -42,6 +41,7 @@ app.use(utilsSession.createOnMongoStore())
 app.use(passport.initialize())
 app.use(passport.session())
 
+import auth from './src/routers/web/auth.js'
 const sessions = auth
 app.use('/api/sessions', sessions)
 
