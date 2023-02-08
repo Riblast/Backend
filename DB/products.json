@@ -16,5 +16,11 @@
         "productName": "pizza",
         "productPrice": "32",
         "productPhoto": ""
+    },
+    {
+        "id": 4,
+        "productName": "papas",
+        "productPrice": "123123",
+        "productPhoto": ""
     }
 ]

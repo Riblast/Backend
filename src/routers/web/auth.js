@@ -36,6 +36,7 @@ passport.deserializeUser(async (email, done) => {
 })
 
 //Routes
+
 authWebRouter.get('/', (req, res) => {
     res.redirect('/home')
 })

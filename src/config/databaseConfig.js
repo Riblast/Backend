@@ -1,14 +1,17 @@
+import dotenv from 'dotenv'
+dotenv.config()
+
 export default {
     PORT: process.env.PORT || 8080,
     fileSystem: {
         path: './DB'
     },
     mongodb: {
-        cnxStr: 'mongodb://127.0.0.1:27017/ecommerce',
+        cnxStr: process.env.MONGODB_DATABASE_CNXSTR ,
         options : {
             authSource: 'admin',
-            user: 'pepe',
-            pass: 'asd456',
+            user: process.env.MONGODB_DATABASE_USER,
+            pass: process.env.MONGODB_DATABASE_PWD,
             useNewUrlParser: true,
             useUnifiedTopology: true
         }
@@ -27,7 +30,7 @@ export default {
     },
     mongoRemote: {
         client: 'mongodb',
-        cnxStr: 'mongodb+srv://admin:adminpwd@cluster0.nieryoj.mongodb.net/ecommerce?retryWrites=true&w=majority',
+        cnxStr: process.env.MONGODB_DATABASE_CNXSTR,
         options: {
             useNewUrlParser: true,
             useUnifiedTopology: true,

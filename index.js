@@ -10,6 +10,7 @@ import { Server as Socket } from 'socket.io'
 import authWebRouter from './src/routers/web/auth.js'
 import homeWebRouter from './src/routers/web/home.js'
 import productsApiRouter from './src/routers/api/products.js'
+import infoWebRouter from './src/routers/web/info.js'
 
 import addProductsHandlers from './src/routers/ws/products.js'
 import addMessagessHandlers from './src/routers/ws/messages.js'
@@ -51,6 +52,7 @@ app.use(productsApiRouter)
 //Web routes
 app.use(authWebRouter)
 app.use(homeWebRouter)
+app.use(infoWebRouter)
 
 //Server init
 const connectedServer = httpServer.listen(config.PORT, () => {
