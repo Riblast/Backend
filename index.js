@@ -11,6 +11,8 @@ import authWebRouter from './src/routers/web/auth.js'
 import homeWebRouter from './src/routers/web/home.js'
 import productsApiRouter from './src/routers/api/products.js'
 import infoWebRouter from './src/routers/web/info.js'
+import randomsApiRouter from './src/routers/api/randomsApiRouter.js'
+
 
 import addProductsHandlers from './src/routers/ws/products.js'
 import addMessagessHandlers from './src/routers/ws/messages.js'
@@ -53,6 +55,7 @@ app.use(productsApiRouter)
 app.use(authWebRouter)
 app.use(homeWebRouter)
 app.use(infoWebRouter)
+app.use(randomsApiRouter)
 
 //Server init
 const connectedServer = httpServer.listen(config.PORT, () => {
