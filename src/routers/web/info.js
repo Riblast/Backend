@@ -1,4 +1,5 @@
 import { Router } from 'express'
+import os from 'os'
 const pathname = new URL(import.meta.url)
 const infoWebRouter = new Router()
 
@@ -10,7 +11,8 @@ infoWebRouter.get('/info', (req, res) =>{
         memoria_total_reservada: process.memoryUsage().rss,
         ruta_de_ejecución: process.cwd(),
         id_del_proyecto: process.pid,
-        carpeta_del_proyecto: pathname
+        carpeta_del_proyecto: pathname,
+        numero_de_procesadores: os.cpus().length
     }
     res.send(`
         <html lang="en">
@@ -31,6 +33,7 @@ infoWebRouter.get('/info', (req, res) =>{
                 <li><p>Ruta de ejecución: ${info.ruta_de_ejecución}</p></li>
                 <li><p>Id del proyecto: ${info.id_del_proyecto}</p></li>
                 <li><p>Carpeta del proyecto: ${info.carpeta_del_proyecto}</p></li>
+                <li><p>Número de procesadores en el servidor: ${info.numero_de_procesadores}</p></li>
             </ul>
         </body>
         </html>
