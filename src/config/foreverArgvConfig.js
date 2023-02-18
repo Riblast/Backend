@@ -6,7 +6,7 @@ const argv = parseArgs(process.argv.slice(2), {
         m: 'mode'
     },
     default: {
-        port: 8080,
+        port: process.argv.PORT || 8080,
         mode: 'fork'
     }
 })

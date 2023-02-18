@@ -11,11 +11,12 @@ module.exports = {
             env: {
                 NODE_ENV: 'development',
                 PM2_MODE: 'fork',
+                PORT: process.argv.PORT || 8080
             },
             env_production: {
                 NODE_ENV: 'production',
                 PM2_MODE: 'fork',
-                PORT: 8080
+                PORT: process.argv.PORT || 8080
             },
         },
         {
@@ -29,11 +30,12 @@ module.exports = {
             env: {
                 NODE_ENV: 'development',
                 PM2_MODE: 'cluster',
-                PORT: 8080
+                PORT: process.argv.PORT || 8080
             },
             env_production: {
                 NODE_ENV: 'production',
                 PM2_MODE: 'cluster',
+                PORT: process.argv.PORT || 8080
             },
         },
     ],
