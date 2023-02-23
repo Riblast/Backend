@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Riblast/Backend#readme",
   "dependencies": {
     "bcrypt": "^5.1.0",
+    "compression": "^1.7.4",
     "connect-mongo": "^4.6.0",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.3",
@@ -26,6 +27,7 @@
     "express-session": "^1.17.3",
     "faker": "^5.5.3",
     "knex": "^2.3.0",
+    "log4js": "^6.7.1",
     "minimist": "^1.2.8",
     "mongoose": "^6.9.0",
     "mysql": "^2.18.1",

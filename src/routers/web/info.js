@@ -14,6 +14,7 @@ infoWebRouter.get('/info', (req, res) =>{
         carpeta_del_proyecto: pathname,
         numero_de_procesadores: os.cpus().length
     }
+    console.log(info)
     res.send(`
         <html lang="en">
         <head>

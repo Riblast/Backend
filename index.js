@@ -4,6 +4,10 @@ import passport from 'passport'
 import cluster from 'cluster'
 import os from 'os'
 
+import compression from 'compression'
+
+import { logInfo, logWarning } from './src/loggers/index.js'
+
 import foreverArgvConfig from './src/config/foreverArgvConfig.js'
 
 import { Server as HttpServer } from 'http'
@@ -43,6 +47,18 @@ app.use(utilsSession.createOnMongoStore())
 
 app.use(passport.initialize())
 app.use(passport.session())
+
+app.use(compression())
+
+app.use((req, res, next) =>{
+    logInfo(`${req.method} ${req.url}`)
+    next()
+})
+
+app.use('*', (req, res, next) =>{
+    logWarning(`${req.method} ${req.originalUrl} - Ruta Inexistente`)
+    next()
+})
 
 import auth from './src/routers/web/auth.js'
 const sessions = auth
