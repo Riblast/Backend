@@ -1,0 +1,280 @@
+Statistical profiling result from isolate-000001DF5CC2F550-1520-v8.log, (4987 ticks, 0 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+   4842   97.1%          C:\WINDOWS\SYSTEM32\ntdll.dll
+    141    2.8%          C:\Program Files\nodejs\node.exe
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+      2    0.0%   50.0%  LazyCompile: *resolve node:path:158:10
+      1    0.0%   25.0%  Function: ^reportModuleToWatchMode node:internal/modules/cjs/loader:193:33
+      1    0.0%   25.0%  Function: ^read node:internal/modules/package_json_reader:16:14
+
+ [C++]:
+   ticks  total  nonlib   name
+
+ [Summary]:
+   ticks  total  nonlib   name
+      4    0.1%  100.0%  JavaScript
+      0    0.0%    0.0%  C++
+      3    0.1%   75.0%  GC
+   4983   99.9%          Shared libraries
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+   4842   97.1%  C:\WINDOWS\SYSTEM32\ntdll.dll
+
+    141    2.8%  C:\Program Files\nodejs\node.exe
+     96   68.1%    C:\Program Files\nodejs\node.exe
+     38   39.6%      Function: ^internalCompileFunction node:internal/vm:30:33
+     37   97.4%        Function: ^wrapSafe node:internal/modules/cjs/loader:1117:18
+     37  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1173:37
+     37  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      1    2.6%        LazyCompile: ~wrapSafe node:internal/modules/cjs/loader:1117:18
+      1  100.0%          LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1173:37
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      4    4.2%      Function: ^compileForInternalLoader node:internal/bootstrap/loaders:319:27
+      4  100.0%        Function: ^requireBuiltin node:internal/bootstrap/loaders:356:24
+      1   25.0%          Function: ~<anonymous> node:internal/cluster/primary:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:319:27
+      1   25.0%          Function: ~<anonymous> node:https:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:319:27
+      1   25.0%          Function: ~<anonymous> node:assert:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:319:27
+      1   25.0%          Function: ~<anonymous> node:_http_client:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:319:27
+      4    4.2%      C:\Program Files\nodejs\node.exe
+      1   25.0%        LazyCompile: ~resolveExports node:internal/modules/cjs/loader:528:24
+      1  100.0%          LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:555:28
+      1  100.0%            LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:948:35
+      1   25.0%        LazyCompile: ~pathtoRegexp C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\path-to-regexp\index.js:28:22
+      1  100.0%          LazyCompile: ~Layer C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\express\lib\router\layer.js:33:15
+      1  100.0%            LazyCompile: ~route C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\express\lib\router\index.js:502:29
+      1   25.0%        LazyCompile: *realpathSync node:fs:2474:22
+      1  100.0%          Function: ^toRealPath node:internal/modules/cjs/loader:449:20
+      1  100.0%            Function: ^tryFile node:internal/modules/cjs/loader:440:17
+      1   25.0%        LazyCompile: *Module._findPath node:internal/modules/cjs/loader:555:28
+      1  100.0%          Function: ^Module._resolveFilename node:internal/modules/cjs/loader:948:35
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:851:24
+      3    3.1%      Function: ^stat node:internal/modules/cjs/loader:161:14
+      2   66.7%        Function: ^Module._findPath node:internal/modules/cjs/loader:555:28
+      2  100.0%          Function: ^Module._resolveFilename node:internal/modules/cjs/loader:948:35
+      1   50.0%            LazyCompile: *Module._load node:internal/modules/cjs/loader:851:24
+      1   50.0%            Function: ^Module._load node:internal/modules/cjs/loader:851:24
+      1   33.3%        Function: ^tryFile node:internal/modules/cjs/loader:440:17
+      1  100.0%          Function: ^tryExtensions node:internal/modules/cjs/loader:456:23
+      1  100.0%            Function: ^Module._findPath node:internal/modules/cjs/loader:555:28
+      3    3.1%      Function: ^read node:internal/modules/package_json_reader:16:14
+      1   33.3%        LazyCompile: ~readPackage node:internal/modules/cjs/loader:335:21
+      1  100.0%          LazyCompile: ~resolveExports node:internal/modules/cjs/loader:528:24
+      1  100.0%            LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:555:28
+      1   33.3%        Function: ^readPackage node:internal/modules/cjs/loader:335:21
+      1  100.0%          Function: ^tryPackage node:internal/modules/cjs/loader:394:20
+      1  100.0%            LazyCompile: *Module._findPath node:internal/modules/cjs/loader:555:28
+      1   33.3%        Function: ^getPackageConfig node:internal/modules/esm/package_config:40:26
+      1  100.0%          Function: ^packageResolve node:internal/modules/esm/resolve:833:24
+      1  100.0%            Function: ^moduleResolve node:internal/modules/esm/resolve:923:23
+      2    2.1%      Function: ^setOwnProperty node:internal/util:537:24
+      1   50.0%        Function: ^makeRequireFunction node:internal/modules/cjs/helpers:59:29
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1173:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      1   50.0%        Function: ^Module node:internal/modules/cjs/loader:206:16
+      1  100.0%          Function: ^Module._load node:internal/modules/cjs/loader:851:24
+      1  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:1097:36
+      2    2.1%      Function: ^requireBuiltin node:internal/bootstrap/loaders:356:24
+      1   50.0%        LazyCompile: ~prepareExecution node:internal/process/pre_execution:51:26
+      1  100.0%          LazyCompile: ~prepareMainThreadExecution node:internal/process/pre_execution:35:36
+      1  100.0%            Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      1   50.0%        Function: ~<anonymous> node:internal/modules/esm/fetch_module:1:1
+      1  100.0%          Function: ^requireBuiltin node:internal/bootstrap/loaders:356:24
+      1  100.0%            Function: ~<anonymous> node:internal/modules/esm/get_format:1:1
+      2    2.1%      Function: ^readSync node:fs:705:18
+      1   50.0%        LazyCompile: *readFileSync node:fs:465:22
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      1  100.0%            LazyCompile: *Module._load node:internal/modules/cjs/loader:851:24
+      1   50.0%        Function: ^tryReadSync node:fs:444:21
+      1  100.0%          Function: ^readFileSync node:fs:465:22
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      2    2.1%      Function: ^openSync node:fs:591:18
+      2  100.0%        Function: ^readFileSync node:fs:465:22
+      1   50.0%          LazyCompile: ~parseOpts C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\@mapbox\node-pre-gyp\lib\node-pre-gyp.js:144:37
+      1  100.0%            LazyCompile: ~Run C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\@mapbox\node-pre-gyp\lib\node-pre-gyp.js:78:13
+      1   50.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:1069:33
+      2    2.1%      Function: ^getOptions node:internal/fs/utils:319:20
+      2  100.0%        Function: ^readFileSync node:fs:465:22
+      2  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      1   50.0%            LazyCompile: *Module._load node:internal/modules/cjs/loader:851:24
+      1   50.0%            Function: ^Module.load node:internal/modules/cjs/loader:1069:33
+      1    1.0%      LazyCompile: ~write C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\mongodb\lib\cmap\connection.js:414:15
+      1  100.0%        LazyCompile: ~command C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\mongodb\lib\cmap\connection.js:261:12
+      1  100.0%          LazyCompile: ~measureRoundTripTime C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\mongodb\lib\sdam\monitor.js:291:30
+      1  100.0%            LazyCompile: ~<anonymous> C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\mongodb\lib\sdam\monitor.js:307:58
+      1    1.0%      LazyCompile: ~setOption C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\mongodb\lib\connection_string.js:427:19
+      1  100.0%        LazyCompile: ~parseOptions C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\mongodb\lib\connection_string.js:195:22
+      1  100.0%          LazyCompile: ~MongoClient C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\mongodb\lib\mongo_client.js:44:16
+      1  100.0%            LazyCompile: ~<anonymous> C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\mongodb\lib\mongo_client.js:236:43
+      1    1.0%      LazyCompile: ~realpathSync node:fs:2474:22
+      1  100.0%        LazyCompile: ~toRealPath node:internal/modules/cjs/loader:449:20
+      1  100.0%          LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:555:28
+      1  100.0%            LazyCompile: ~resolveMainPath node:internal/modules/run_main:15:25
+      1    1.0%      LazyCompile: ~readFile node:internal/fs/promises:892:24
+      1  100.0%        C:\Program Files\nodejs\node.exe
+      1    1.0%      LazyCompile: ~pbkdf2Sync node:internal/crypto/pbkdf2:68:20
+      1  100.0%        LazyCompile: ~HI C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\mongodb\lib\cmap\auth\scram.js:238:12
+      1  100.0%          LazyCompile: ~continueScramConversation C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\mongodb\lib\cmap\auth\scram.js:93:35
+      1  100.0%            LazyCompile: ~<anonymous> C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\mongodb\lib\cmap\auth\scram.js:85:80
+      1    1.0%      LazyCompile: ~handleWriteReq node:internal/stream_base_commons:45:24
+      1  100.0%        Function: ^writeGeneric node:internal/stream_base_commons:147:22
+      1  100.0%          Function: ^Socket._writeGeneric node:net:897:42
+      1  100.0%            Function: ^Socket._write node:net:934:35
+      1    1.0%      LazyCompile: ~getStderr node:internal/bootstrap/switches/is_main_thread:168:19
+      1  100.0%        Function: ~<anonymous> C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\debug\src\node.js:1:1
+      1  100.0%          LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1173:37
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      1    1.0%      LazyCompile: ~deserializeObject C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\bson\lib\parser\deserializer.js:65:27
+      1  100.0%        LazyCompile: ~deserializeObject C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\bson\lib\parser\deserializer.js:65:27
+      1  100.0%          LazyCompile: ~deserialize C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\bson\lib\parser\deserializer.js:36:21
+      1  100.0%            LazyCompile: ~deserialize C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\bson\lib\bson.js:161:21
+      1    1.0%      LazyCompile: ~deserialize C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\bson\lib\parser\deserializer.js:36:21
+      1  100.0%        LazyCompile: ~deserialize C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\bson\lib\bson.js:161:21
+      1  100.0%          LazyCompile: ~parse C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\mongodb\lib\cmap\commands.js:222:10
+      1  100.0%            LazyCompile: ~onMessage C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\mongodb\lib\cmap\connection.js:154:14
+      1    1.0%      LazyCompile: ~configSecureContext node:internal/tls/secure-context:124:29
+      1  100.0%        LazyCompile: ~createSecureContext node:_tls_common:99:29
+      1  100.0%          LazyCompile: ~connect node:_tls_wrap:1612:35
+      1  100.0%            LazyCompile: ~makeConnection C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\mongodb\lib\cmap\connect.js:256:24
+      1    1.0%      LazyCompile: ~add C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\mongoose\lib\schema.js:580:36
+      1  100.0%        LazyCompile: ~Schema C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\mongoose\lib\schema.js:96:16
+      1  100.0%          Script: ~<anonymous> file:///C:/Users/franc/OneDrive/Documents/Backend/Backend/src/models/usersModel.js:1:1
+      1  100.0%            C:\Program Files\nodejs\node.exe
+      1    1.0%      LazyCompile: ~Faker C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\faker\lib\index.js:24:16
+      1  100.0%        Function: ~<anonymous> C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\faker\index.js:1:1
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1173:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      1    1.0%      LazyCompile: ~ConnectionPoolMonitoringEvent C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\mongodb\lib\cmap\connection_pool_events.js:11:16
+      1  100.0%        LazyCompile: ~ConnectionCheckedOutEvent C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\mongodb\lib\cmap\connection_pool_events.js:127:16
+      1  100.0%          LazyCompile: ~<anonymous> C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\mongodb\lib\cmap\connection_pool.js:517:35
+      1  100.0%            LazyCompile: ~<anonymous> C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\mongodb\lib\cmap\connection_pool.js:391:48
+      1    1.0%      LazyCompile: ~<anonymous> node:internal/dns/utils:77:22
+      1  100.0%        LazyCompile: ~ResolverBase node:internal/dns/utils:66:14
+      1  100.0%          LazyCompile: ~getDefaultResolver node:internal/dns/utils:237:28
+      1  100.0%            LazyCompile: ~bindDefaultResolver node:internal/dns/utils:250:29
+      1    1.0%      LazyCompile: ~<anonymous> C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\mongodb\lib\sdam\topology.js:173:57
+      1  100.0%        C:\Program Files\nodejs\node.exe
+      1  100.0%          LazyCompile: ~connect C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\mongodb\lib\sdam\topology.js:154:12
+      1  100.0%            LazyCompile: ~<anonymous> C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\mongodb\lib\mongo_client.js:138:49
+      1    1.0%      LazyCompile: ~<anonymous> C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\mongodb\lib\cmap\connection_pool.js:327:27
+      1  100.0%        LazyCompile: ~<anonymous> C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\mongodb\lib\sdam\server.js:210:101
+      1  100.0%          LazyCompile: ~handleOperationResult C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\mongodb\lib\sdam\server.js:326:42
+      1  100.0%            LazyCompile: ~onMessage C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\mongodb\lib\cmap\connection.js:154:14
+      1    1.0%      LazyCompile: ~<anonymous> C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\mongodb\lib\cmap\connect.js:31:63
+      1  100.0%        LazyCompile: ~callback C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\mongodb\lib\cmap\connect.js:269:31
+      1  100.0%          LazyCompile: ~connectHandler C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\mongodb\lib\cmap\connect.js:313:28
+      1  100.0%            LazyCompile: ~onceWrapper node:events:622:21
+      1    1.0%      LazyCompile: ~<anonymous> C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\minimist\index.js:244:41
+      1  100.0%        C:\Program Files\nodejs\node.exe
+      1  100.0%          LazyCompile: ~module.exports C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\minimist\index.js:23:27
+      1  100.0%            Script: ~<anonymous> file:///C:/Users/franc/OneDrive/Documents/Backend/Backend/src/config/foreverArgvConfig.js:1:1
+      1    1.0%      LazyCompile: ~<anonymous> C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\express\lib\request.js:467:36
+      1  100.0%        LazyCompile: ~send C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\express\lib\response.js:111:25
+      1  100.0%          LazyCompile: ~<anonymous> file:///C:/Users/franc/OneDrive/Documents/Backend/Backend/src/routers/web/info.js:6:28
+      1  100.0%            LazyCompile: ~handle C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\express\lib\router\layer.js:86:49
+      1    1.0%      LazyCompile: *readPackageScope node:internal/modules/cjs/loader:377:26
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      1  100.0%          LazyCompile: *Module._load node:internal/modules/cjs/loader:851:24
+      1  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:1097:36
+      1    1.0%      LazyCompile: *internalCompileFunction node:internal/vm:30:33
+      1  100.0%        Function: ^wrapSafe node:internal/modules/cjs/loader:1117:18
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1173:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      1    1.0%      LazyCompile: *Module._findPath node:internal/modules/cjs/loader:555:28
+      1  100.0%        Function: ^Module._resolveFilename node:internal/modules/cjs/loader:948:35
+      1  100.0%          LazyCompile: *Module._load node:internal/modules/cjs/loader:851:24
+      1  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:1097:36
+      1    1.0%      Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    1.0%      Function: ~<anonymous> node:internal/fs/promises:1:1
+      1  100.0%        Function: ^requireBuiltin node:internal/bootstrap/loaders:356:24
+      1  100.0%          Function: ~<anonymous> node:internal/modules/esm/load:1:1
+      1  100.0%            Function: ^requireBuiltin node:internal/bootstrap/loaders:356:24
+      1    1.0%      Function: ~<anonymous> C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\mongoose\lib\types\DocumentArray\methods\index.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1173:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:1069:33
+      1    1.0%      Function: ~<anonymous> C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\mongodb\lib\cmap\wire_protocol\compression.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1173:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:1069:33
+      1    1.0%      Function: ^serializeInto C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\bson\lib\parser\serializer.js:553:23
+      1  100.0%        Function: ^serialize C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\bson\lib\bson.js:110:19
+      1  100.0%          Function: ^serializeBson C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\mongodb\lib\cmap\commands.js:379:18
+      1  100.0%            Function: ^makeDocumentSegment C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\mongodb\lib\cmap\commands.js:371:24
+      1    1.0%      Function: ^realpathSync node:fs:2474:22
+      1  100.0%        Function: ^toRealPath node:internal/modules/cjs/loader:449:20
+      1  100.0%          Function: ^tryFile node:internal/modules/cjs/loader:440:17
+      1  100.0%            Function: ^tryExtensions node:internal/modules/cjs/loader:456:23
+      1    1.0%      Function: ^readPackageScope node:internal/modules/cjs/loader:377:26
+      1  100.0%        Function: ^trySelf node:internal/modules/cjs/loader:497:17
+      1  100.0%          Function: ^Module._resolveFilename node:internal/modules/cjs/loader:948:35
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:851:24
+      1    1.0%      Function: ^readPackage node:internal/modules/cjs/loader:335:21
+      1  100.0%        LazyCompile: *Module._findPath node:internal/modules/cjs/loader:555:28
+      1  100.0%          Function: ^Module._resolveFilename node:internal/modules/cjs/loader:948:35
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:851:24
+      1    1.0%      Function: ^readFileSync node:fs:465:22
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:1069:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:851:24
+      1    1.0%      Function: ^closeSync C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\graceful-fs\graceful-fs.js:72:24
+      1  100.0%        Function: ^readFileSync node:fs:465:22
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:1069:33
+      1    1.0%      Function: ^URL node:internal/url:637:14
+      1  100.0%        LazyCompile: ~defaultResolve node:internal/modules/esm/resolve:1063:30
+      1  100.0%          LazyCompile: ~ObjectDefineProperty.__proto__ node:internal/modules/esm/loader:148:5
+      1  100.0%            LazyCompile: ~resolve node:internal/modules/esm/loader:789:16
+      1    1.0%      Function: ^Module._findPath node:internal/modules/cjs/loader:555:28
+      1  100.0%        Function: ^Module._resolveFilename node:internal/modules/cjs/loader:948:35
+      1  100.0%          Function: ^Module._load node:internal/modules/cjs/loader:851:24
+      1  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:1097:36
+     12    8.5%    LazyCompile: *internalCompileFunction node:internal/vm:30:33
+     11   91.7%      Function: ^wrapSafe node:internal/modules/cjs/loader:1117:18
+     11  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1173:37
+     11  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+     11  100.0%            LazyCompile: *Module._load node:internal/modules/cjs/loader:851:24
+      1    8.3%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1173:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      1  100.0%          LazyCompile: *Module._load node:internal/modules/cjs/loader:851:24
+      1  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:1097:36
+      2    1.4%    LazyCompile: *realpathSync node:fs:2474:22
+      1   50.0%      LazyCompile: *Module._findPath node:internal/modules/cjs/loader:555:28
+      1  100.0%        Function: ^Module._resolveFilename node:internal/modules/cjs/loader:948:35
+      1  100.0%          LazyCompile: *Module._load node:internal/modules/cjs/loader:851:24
+      1  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:1097:36
+      1   50.0%      Function: ^toRealPath node:internal/modules/cjs/loader:449:20
+      1  100.0%        Function: ^tryFile node:internal/modules/cjs/loader:440:17
+      1  100.0%          Function: ^tryExtensions node:internal/modules/cjs/loader:456:23
+      1  100.0%            Function: ^Module._findPath node:internal/modules/cjs/loader:555:28
+      2    1.4%    LazyCompile: *readPackageScope node:internal/modules/cjs/loader:377:26
+      2  100.0%      Function: ^trySelf node:internal/modules/cjs/loader:497:17
+      2  100.0%        Function: ^Module._resolveFilename node:internal/modules/cjs/loader:948:35
+      1   50.0%          LazyCompile: *Module._load node:internal/modules/cjs/loader:851:24
+      1  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:1097:36
+      1   50.0%          Function: ^Module._load node:internal/modules/cjs/loader:851:24
+      1  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:1097:36
+      2    1.4%    Function: ^Module._load node:internal/modules/cjs/loader:851:24
+      2  100.0%      Function: ^Module.require node:internal/modules/cjs/loader:1097:36
+      2  100.0%        Function: ^require node:internal/modules/cjs/helpers:102:31
+      1   50.0%          Function: ~<anonymous> C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\faker\lib\locales\de\name\index.js:1:1
+      1  100.0%            Function: ^Module._compile node:internal/modules/cjs/loader:1173:37
+      1   50.0%          Function: ~<anonymous> C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\@mapbox\node-pre-gyp\lib\node-pre-gyp.js:1:1
+      1  100.0%            Function: ^Module._compile node:internal/modules/cjs/loader:1173:37
+
