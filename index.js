@@ -22,7 +22,7 @@ import randomsApiRouter from './src/routers/api/randomsApiRouter.js'
 import addProductsHandlers from './src/routers/ws/products.js'
 import addMessagessHandlers from './src/routers/ws/messages.js'
 
-import utilsSession from './src/services/utilsSession.js'
+import utilsSession from './src/services/UtilsSession.js'
 
 const app = express()
 const httpServer = new HttpServer(app)

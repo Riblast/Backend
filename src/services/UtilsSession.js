@@ -1,7 +1,6 @@
 import session from 'express-session'
 import MongoStore from 'connect-mongo'
 import bCrypt from 'bcrypt'
-
 function createOnMongoStore() {
     const advancedOptions = { useNewUrlParser: true, useUnifiedTopology: true }
     return session({
