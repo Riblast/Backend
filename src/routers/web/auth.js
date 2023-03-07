@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import SessionService from '../../services/SessionContainer.js'
-import utilsSession from '../../services/utilsSession.js'
+import utilsSession from '../../services/UtilsSession.js'
 import path from 'path'
 import passport from 'passport'
 import { Strategy } from 'passport-local'

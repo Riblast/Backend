@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 import usersModel from '../models/usersModel.js'
-import utilsSession from './utilsSession.js'
+import utilsSession from './UtilsSession.js'
 
 class SessionService {
     constructor() {
