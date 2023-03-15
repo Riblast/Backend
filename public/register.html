@@ -8,14 +8,34 @@
 </head>
 <body>
     <h1>Registro de Usuario</h1>
-    <form action="/register" method="post" autocomplete="off">
+    <form action="/register" method="post" enctype="multipart/form-data" autocomplete="on">
+        <div>
+            <label for="registerName">Ingrese su nombre</label>
+            <input id="registerName" type="text" name="registerName" required>
+        </div>
         <div>
             <label for="registerEmail">Ingrese su email</label>
-        <input id="registerEmail" type="email" name="registerEmail" required>
+            <input id="registerEmail" type="email" name="registerEmail" required>
         </div>
         <div>
             <label for="registerPassword">Ingrese su contraseña</label>
-        <input id="registerPassword" type="password" name="registerPassword" required>
+            <input id="registerPassword" type="password" name="registerPassword" required>
+        </div>
+        <div>
+            <label for="registerAge">Ingrese su edad</label>
+            <input id="registerAge" type="number" name="registerAge" required>
+        </div>
+        <div>
+            <label for="registerAdress">Ingrese su direccion</label>
+            <input id="registerAdress" type="text" name="registerAdress" required>
+        </div>
+        <div>
+            <label for="registerPhoneNumber">Ingrese su número de telefono</label>
+            <input id="registerPhoneNumber" type="number" name="registerPhoneNumber" required>
+        </div>
+        <div>
+            <label for="registerAvatar">Ingrese su avatar</label>
+            <input id="registerAvatar" type="file" accept="image/png, image/gif, image/jpeg" name="registerAvatar" required>
         </div>
         <button>Enviar</button>
     </form>

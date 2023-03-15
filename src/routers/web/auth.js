@@ -4,6 +4,7 @@ import utilsSession from '../../services/UtilsSession.js'
 import path from 'path'
 import passport from 'passport'
 import { Strategy } from 'passport-local'
+import { upload } from '../../config/multerConfig.js'
 const LocalStrategy = Strategy
 
 const authWebRouter = new Router()
@@ -37,10 +38,6 @@ passport.deserializeUser(async (email, done) => {
 
 //Routes
 
-authWebRouter.get('/', (req, res) => {
-    res.redirect('/home')
-})
-
 authWebRouter.get('/login', (req, res) => {
     if(req.session.passport?.user){
         res.redirect('/home')
@@ -65,8 +62,16 @@ authWebRouter.get('/register', (req, res)=>{
     res.sendFile('register.html', {root: 'public'})
 })
 
-authWebRouter.post('/register', async(req, res)=>{
-    const registerData = { email: req.body.registerEmail, password: req.body.registerPassword }
+authWebRouter.post('/register', upload.single('registerAvatar'), async(req, res)=>{
+    const registerData = {
+        name: req.body.registerName,
+        email: req.body.registerEmail,
+        password: req.body.registerPassword,
+        age: req.body.registerAge,
+        adress: req.body.registerAdress,
+        phone: req.body.registerPhoneNumber,
+        avatar: req.file ? `public/uploads/${req.file.filename}` : null
+    }
     const response = await sessionService.registerUser(registerData)
     if (response) {
         console.log('registrado correctamente')

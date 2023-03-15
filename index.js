@@ -6,8 +6,6 @@ import os from 'os'
 
 import compression from 'compression'
 
-import { logInfo, logWarning } from './src/loggers/index.js'
-
 import foreverArgvConfig from './src/config/foreverArgvConfig.js'
 
 import { Server as HttpServer } from 'http'
@@ -50,16 +48,6 @@ app.use(passport.session())
 
 app.use(compression())
 
-app.use((req, res, next) =>{
-    logInfo(`${req.method} ${req.url}`)
-    next()
-})
-
-app.use('*', (req, res, next) =>{
-    logWarning(`${req.method} ${req.originalUrl} - Ruta Inexistente`)
-    next()
-})
-
 import auth from './src/routers/web/auth.js'
 const sessions = auth
 app.use('/api/sessions', sessions)
@@ -68,6 +56,9 @@ app.use('/api/sessions', sessions)
 app.use(productsApiRouter)
 
 //Web routes
+app.get('/', (req, res) => {
+    res.redirect('/home')
+})
 app.use(authWebRouter)
 app.use(homeWebRouter)
 app.use(infoWebRouter)

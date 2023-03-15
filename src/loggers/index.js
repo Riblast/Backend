@@ -14,18 +14,4 @@ log4js.configure({
     }
 })
 
-const loggerInfo = log4js.getLogger('info')
-const loggerWarn = log4js.getLogger('warn')
-const loggerError = log4js.getLogger('error')
-
-export function logInfo(msj){
-    loggerInfo.info(msj)
-}
-
-export function logWarning(msj){
-    loggerWarn.warn(msj)
-}
-
-export function logError(msj){
-    loggerError.error(msj)
-}
+export const logger = log4js.getLogger()

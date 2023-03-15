@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/normalizr@3.6.1/dist/normalizr.browser.min.js"></script>
+</head>
+<body>
+    <div>
+        <h1 class="welcomeMessage"></h1>
+        <button onclick="location.href='/logout'">
+            Desloguear
+        </button>
+    </div>
+    <form>
+        <div>
+            <label for="itemName">Enter product: </label>
+            <input type="text" id="nombre" required/>
+        </div>
+        <div>
+            <label for="itemPrice">Enter price: </label>
+            <input type="number" id="precio" required/>
+        </div>
+        <div>
+            <label for="url">Enter thumbnail url: </label>
+            <input type="text" id="foto"/>
+        </div>
+        <div>
+            <button onclick="return addProduct(this)">Añadir</button>
+        </div>
+
+    </form>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <td>Nombre</td>
+                    <td>Precio</td>
+                    <td>Foto</td>
+                </tr>
+            </thead>
+            <tbody id="productos">
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <h2>Mensajes</h2>
+        <h3>Centro de Mensajes (Compresión: <span id="compresionStatus"></span>%)</h3>
+        <form>
+            <div >
+                <input type="email" id="email" placeholder="Ingresá tu email" required>
+                <input type="text" id="message" placeholder="Mensaje" required>
+                <input type="text" id="name" placeholder="Ingresá tu nombre">
+                <input type="text" id="lastName" placeholder="Ingresá tu apellido">
+                <input type="text" id="age" placeholder="Ingresa tu edad">
+                <input type="text" id="username" placeholder="Ingresa tu nombre de usuario">
+                <input type="text" id="avatar" placeholder="Ingresá una foto">
+                <button onclick="return addMessage(this)">enviar</button>
+            </div>
+        </form>
+        <div id="mensajes"></div>
+    </div>
+    <script src="main.js">getSessionUsername()</script>
+</body>
+</html>

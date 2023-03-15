@@ -6,7 +6,7 @@ import path from 'path'
 const productsWebRouter = new Router()
 
 productsWebRouter.get('/home', webAuth, (req, res) => {
-    res.sendFile(path.join(process.cwd(), '/public/index.html'))
+    res.sendFile(path.join(process.cwd(), '/public/home.html'))
 })
 
 productsWebRouter.get('/productos-vista-test', (req, res) => {
