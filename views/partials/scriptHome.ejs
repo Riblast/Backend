@@ -1,0 +1,36 @@
+<script>
+
+    let id = ''
+
+    document.querySelectorAll(".product").forEach(
+        row => {row.addEventListener("click", e => {
+            id = e.currentTarget.getAttribute("id");
+            console.log(id);
+        });
+    });
+
+    const btnGuardar = document.getElementById('btnGuardar')
+
+    btnGuardar.addEventListener('click' , async e => {
+
+        const cantidad = document.getElementById("inputCantidad").value || '1'
+
+        const producto = {
+            id: id,
+            cantidad: cantidad
+        };
+
+        console.log('producto', producto)
+
+        let response = await fetch('/cart/addProduct', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json ; charset=utf-8' },
+            body: JSON.stringify({producto: producto})
+        })
+        let responsedata = await response.json
+        console.log('responsedata' ,responsedata)
+    })
+
+</script>

@@ -1,0 +1,48 @@
+  <div class="modal fade fixed hidden inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+      <div class="modal-content mt-3 text-center">
+        <div class="modal-header flex justify-between">
+          <h5 class="modal-title" id="exampleModalLabel">Desea eliminar el producto?</h5>
+          <button type="button" class="btn-close p-1 rounded border bg-orange-600" data-bs-dismiss="modal" aria-label="Close">close</button>
+        </div>
+        <!-- <div class="modal-body">
+                <input type="number" class="form-control"  id="popo" placeholder="1" required>
+        </div> -->
+        <div class="modal-footer">
+          <button type="button" class="btn p-2 rounded border bg-orange-400" id="btnBorrar" data-bs-dismiss="modal">Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="flex flex-col w-full items-center">
+    <h2>Mi carrito</h2>
+    <% if(carrito && carrito.productos.length > 0) { %>
+      <table id="table" class="table border w-1/2">
+        <thead class="bg-gradient-to-r from-orange-600 via-rose-600 to-pink-600">
+            <tr>
+                <th class="rounded-tl" scope="col">Producto</th>
+                <th scope="col">Precio</th>
+                <th class="rounded-tr" scope="col">Cantidad</th>
+            </tr>
+        </thead>
+          <tbody class="cart bg-gray-100" id="tbody">
+            <% carrito.productos.forEach(producto => { %>
+                <tr class="cart" id="<%= producto.id %>" data-bs-toggle="modal" data-bs-target="#myModal">
+                  <th scope="col"><%= producto.title %></th>
+                      <th scope="col">$<%= producto.price %></th>
+                      <th scope="col"><%= producto.cantidad %></th>
+                  </tr>
+            <% }) %>
+          </tbody>
+      </table>
+      <div class="flex m-5">
+        <span>Total: $</span>
+        <span><%= carrito.total %></span>
+      </div>
+      <button type="button" class="btn p-2 rounded border bg-orange-400" id="btnComprar" >Comprar</button>
+    <% } else { %>
+      <div class="m-5">El Carrito esta vacio</div>
+    <% } %>
+</div>
