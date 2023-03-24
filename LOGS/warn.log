@@ -1,3 +1,0 @@
-[2023-03-19T20:36:51.448] [FATAL] default - Error en servidor: Error: listen EADDRINUSE: address already in use :::8080
-[2023-03-19T20:39:15.944] [FATAL] default - Error en servidor: Error: listen EADDRINUSE: address already in use :::8080
-[2023-03-19T20:41:19.084] [FATAL] default - Error en servidor: Error: listen EADDRINUSE: address already in use :::8080
