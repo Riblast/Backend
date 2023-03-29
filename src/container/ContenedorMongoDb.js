@@ -1,34 +1,32 @@
-import mongoose from 'mongoose'
 import transformMongoObject from '../utils/objectUtils.js'
-import { urlMongo } from '../config/config.js'
 import { logger } from '../utils/logger.js'
-
-await  mongoose.connect(urlMongo, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
-.then(() => logger.info('Base de datos MONGO conectada'))
-.catch(err => logger.error("Base de datos MONGO no conectada"))
-
+import MongoDBClient from '../classes/MongoDBClientClass.js'
+import CustomError from '../classes/CustomErrorClass.js'
 
 class ContenedorMongoDb {
-    constructor (nombreCollection, squema) {
-        this.collection = mongoose.model(nombreCollection, squema)
+    constructor (squema) {
+        this.collection = squema
+        this.connection = MongoDBClient.getInstance()
     }
 
     async listar(id) {
         try {
+            await this.connection.connect()
             const res = await this.collection.find({_id: id})
-            
             return transformMongoObject(res)
         } catch (error) {
-            logger.error(error)
-            return false
+            const objError = new CustomError(500, 'Error listar()', error)
+            logger.error(objError)
+            throw objError
+        } finally {
+            this.connection.disconnect()
         }
+        
     }
 
     async listarAll() {
         try {
+            await this.connection.connect()
             const res = await this.collection.find({})
             if(res.length == 0){
                 return res
@@ -36,48 +34,67 @@ class ContenedorMongoDb {
                 return transformMongoObject(res)
             }
         } catch (error) {
-            logger.error(error)
-            return false
+            const objError = new CustomError(500, 'Error listarAll()', error)
+            logger.error(objError)
+            throw objError
+        } finally {
+            this.connection.disconnect()
         }
     }
 
     async guardar(elemento) {
         try {
+            await this.connection.connect()
             const res = await this.collection.create(elemento)
             return transformMongoObject(res)
         } catch (error) {
-            logger.error(error)
-            return false
+            const objError = new CustomError(500, 'Error guardar()', error)
+            logger.error(objError)
+            throw objError
+        } finally {
+            this.connection.disconnect()
         }
     }
 
     async actualizar(id, elemento) {
         try {
+            await this.connection.connect()
             const res = await this.collection.updateOne({_id: id} , { $set: elemento })
             return res.acknowledged
         } catch (error) {
-            logger.err(error)
-            return false
+            const objError = new CustomError(500, 'Error actualizar()', error)
+            logger.error(objError)
+            throw objError
+        } finally {
+            this.connection.disconnect()
         }
     }
 
     async borrar(id) {
         try {
+            await this.connection.connect()
             const res = await   this.collection.deleteOne({_id: id})
             return res.acknowledged
         } catch (error) {
-            console.log(error)
-            return false
+            const objError = new CustomError(500, 'Error borrar()', error)
+            logger.error(objError)
+            throw objError
+        } finally {
+            this.connection.disconnect()
         }
     }
 
     async borrarTodo() {
         try {
+            await this.connection.connect()
             const res = await   this.collection.deleteMany()
             return res.acknowledged
         } catch (error) {
-            logger.err(error)
-            return false
+            const objError = new CustomError(500, 'Error borrarTodo()', error)
+            logger.error(objError)
+            throw objError
+        } finally {
+            this.connection.disconnect()
         }
     }
 }

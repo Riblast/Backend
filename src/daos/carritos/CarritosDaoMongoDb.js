@@ -1,12 +1,9 @@
-import ContenedorMongoDb from "../../container/ContenedorMongoDb.js";
+import ContenedorMongoDb from "../../container/ContenedorMongoDb.js"
+import cartSchema from "../../models/cartSchema.js"
 
 class CarritosDaoMongoDb extends ContenedorMongoDb {
     constructor () {
-        super('carritos', {
-            total: { type: Number , required: true },
-            productos: { type: [], required: true },
-            user: {type: String, required: true}
-        })
+        super(cartSchema)
     }
 }
 

@@ -1,0 +1,15 @@
+[2023-03-28T21:01:44.737] [ERROR] default - CustomError {
+  codigo: 500,
+  descripcion: 'Error listarAll()',
+  detalle: TypeError: Cannot read properties of undefined (reading 'connect')
+      at UsuariosDaoMongoDb.listarAll (file:///C:/Users/franc/OneDrive/Documents/Backend/Backend/src/container/ContenedorMongoDb.js:30:35)
+      at postLoginController (file:///C:/Users/franc/OneDrive/Documents/Backend/Backend/src/controller/login.js:5:40)
+      at Layer.handle [as handle_request] (C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\express\lib\router\layer.js:95:5)
+      at next (C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\express\lib\router\route.js:144:13)
+      at Route.dispatch (C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\express\lib\router\route.js:114:3)
+      at Layer.handle [as handle_request] (C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\express\lib\router\layer.js:95:5)
+      at C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\express\lib\router\index.js:284:15
+      at Function.process_params (C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\express\lib\router\index.js:346:12)
+      at next (C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\express\lib\router\index.js:280:10)
+      at Function.handle (C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\express\lib\router\index.js:175:3)
+}

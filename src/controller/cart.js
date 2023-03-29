@@ -9,10 +9,20 @@ let carritos = []  // aqui se guardan los carritos que esten generando los usuar
 export const getCartController = async (req, res ) => {
     if(req.isAuthenticated()){
         const nombre = (await usuariosDao.listar(req.session.passport.user))[0].nombre
+        const edad = (await usuariosDao.listar(req.session.passport.user))[0].edad
+        const direccion = (await usuariosDao.listar(req.session.passport.user))[0].direccion
+        const phone = (await usuariosDao.listar(req.session.passport.user))[0].phone
+        const email = (await usuariosDao.listar(req.session.passport.user))[0].email
+        const photo = (await usuariosDao.listar(req.session.passport.user))[0].photo
         let miCarrito = carritos.find(carrito => carrito.user === req.session.passport.user)
 
         res.render('pages/cart', {
             nombre: nombre,
+            edad: edad,
+            direccion: direccion,
+            phone: phone,
+            email: email,
+            photo: photo,
             carrito: miCarrito,
             active: 'cart'
         })
