@@ -37,8 +37,6 @@ class ContenedorMongoDb {
             const objError = new CustomError(500, 'Error listarAll()', error)
             logger.error(objError)
             throw objError
-        } finally {
-            this.connection.disconnect()
         }
     }
 
@@ -59,8 +57,8 @@ class ContenedorMongoDb {
     async actualizar(id, elemento) {
         try {
             await this.connection.connect()
-            const res = await this.collection.updateOne({_id: id} , { $set: elemento })
-            return res.acknowledged
+            await this.collection.findByIdAndUpdate({_id: id} , { $set: elemento })
+            return elemento
         } catch (error) {
             const objError = new CustomError(500, 'Error actualizar()', error)
             logger.error(objError)
@@ -73,14 +71,12 @@ class ContenedorMongoDb {
     async borrar(id) {
         try {
             await this.connection.connect()
-            const res = await   this.collection.deleteOne({_id: id})
-            return res.acknowledged
+            const res = await this.collection.findByIdAndDelete({_id: id})
+            return res
         } catch (error) {
             const objError = new CustomError(500, 'Error borrar()', error)
             logger.error(objError)
             throw objError
-        } finally {
-            this.connection.disconnect()
         }
     }
 

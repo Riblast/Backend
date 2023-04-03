@@ -4,6 +4,7 @@ import session from 'express-session'
 import { mongoSession } from './session/mongoSession.js'
 import passport from 'passport'
 import { port } from './config/config.js'
+import { api } from './routes/api.js'
 import { login } from './routes/login.js'
 import { register } from './routes/register.js'
 import { error } from './routes/error.js'
@@ -14,6 +15,7 @@ import yargs from  'yargs'
 import cluster from 'cluster'
 import { cpus } from 'os'
 import { logger } from './utils/logger.js'
+
 
 
 
@@ -38,6 +40,7 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 //------------------------------RUTAS---------------------//
+app.use('/api', api)
 app.use( '/login', login )
 app.use( '/logout' , logout)
 app.use( '/register' , register )
@@ -103,3 +106,4 @@ if(mode === 'cluster'){
 }
 
 
+export default app
