@@ -15,8 +15,9 @@ import yargs from  'yargs'
 import cluster from 'cluster'
 import { cpus } from 'os'
 import { logger } from './utils/logger.js'
-
-
+import { graphqlHTTP } from 'express-graphql'
+import ProductosSchema from './graphql/schema.js'
+import { obtenerProducto, obtenerProductos, eliminarProducto, agregarProducto, actualizarProducto } from './graphql/resolvers.js'
 
 
 const app = express()
@@ -50,6 +51,16 @@ app.use( '/cart' , cart )
 app.get('*', (req, res) => {
     res.redirect('/home')
 })
+app.use('/graphql', graphqlHTTP({
+    schema: ProductosSchema,
+    rootValue: {
+        obtenerProducto, 
+        obtenerProductos, 
+        eliminarProducto, 
+        agregarProducto,
+        actualizarProducto},
+    graphiql: true,
+}))
 
 //------------------YARGS---------------------------------//
 
