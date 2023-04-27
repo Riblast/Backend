@@ -9,7 +9,6 @@ const router = new Router();
 const colors: string[] = [];
 
 router.get('/', (ctx: Context) => {
-    //Creamos un html para mostrar en el navegador con los colores, con estilos que tenemos en el array colores y un formulario para añadir más colores
     ctx.response.body = `
         <html>
             <head>
