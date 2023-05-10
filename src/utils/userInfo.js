@@ -1,4 +1,4 @@
-import { usuariosDao } from '../daos'
+import { usuariosDao } from '../daos/index.js'
 
 const getData = async (req, res) => {
   const usuario = await usuariosDao.listar(req.session.passport.user)
