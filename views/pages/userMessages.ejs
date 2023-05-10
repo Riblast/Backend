@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <%-include('../partials/head.ejs')%>
+    </head>
+
+    <body class="h-screen w-screen">
+        <%- include('../partials/profile.ejs')%>
+        <%-include('../partials/navbar.ejs')%>
+        <%-include('../partials/logout.ejs')%>
+        <div>
+            <h2>Mensajes enviados de: <%= messages[0].user %></h2>
+            <div class="messages">
+                <% messages.forEach(message => { %>
+                    <div class="message">
+                    <span class="user"><%= message.user %>:</span>
+                    <span class="text"><%= message.message %></span>
+                    </div>
+                <% }) %>
+                </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    </body>
+
+</html>

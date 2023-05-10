@@ -1,0 +1,23 @@
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    const socket = io()
+
+const addMessage = () =>{
+    const text = document.getElementById('message').value
+    const message = {
+        user: '<%= email %>',
+        message: text,
+        role: 'user'
+    }
+
+    document.getElementById('message').value = ''
+
+    try {
+        socket.emit('new-message', message)
+    } catch (error) {
+        console.error('Error al enviar mensaje: ', error)
+    }
+
+    return false
+}
+</script>

@@ -1,0 +1,51 @@
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    const socket = io()
+
+    const sendMessage = () => {
+        const text = document.getElementById('message').value
+        const message = {
+            user: 'Admin',
+            message: text,
+            role: 'admin'
+        }
+
+        document.getElementById('message').value = ''
+
+        try {
+            socket.emit('new-message', message)
+        } catch (error) {
+            console.error('Error al enviar mensaje: ', error)
+        }
+
+        return false
+    }
+
+    const showReplyForm = (id) => {
+        const replyForm = document.getElementById(`reply-form-${id}`)
+        replyForm.style.display = 'block'
+    }
+
+    const addReply = (form, messageId) => {
+        const text = form.reply.value
+        const reply = {
+            user: 'Admin',
+            message: text,
+            timestamp: new Date().getTime()
+        }
+
+        form.reset()
+
+        try {
+            socket.emit('new-reply', { messageId: messageId, reply: reply })
+        } catch (error) {
+            console.error('Error al enviar respuesta: ', error)
+        }
+
+        const replyForm = document.getElementById(`reply-form-${messageId}`)
+        replyForm.style.display = 'none'
+
+        return false
+    }
+
+</script>

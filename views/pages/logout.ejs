@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <%-include('../partials/head.ejs')%>
+    </head>
+
+    <body class="flex flex-col justify-center items-center h-screen w-screen">
+        <div class="bg-gradient-to-r from-orange-600 via-rose-600 to-pink-600 rounded p-6">
+            <span class="bg-gradient-to-r from-orange-600 via-rose-600 to-pink-600" >Estas deslogueado <%= nombre %> </span>
+        </div>
+    </body>
+    <script>
+        setTimeout(() => {
+            location.href = '/login'
+        }, 2000)
+    </script>
+</html>

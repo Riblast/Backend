@@ -1,0 +1,47 @@
+<div class="modal fade fixed hidden inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full" id="profileModal"
+    tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+    <div class="modal-dialog relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+        <div class="modal-content mt-3 text-center">
+            <div class="modal-header flex justify-end mb-5">
+                <h5 class="modal-title w-full flex justify-center" id="profileModalLabel">Perfil</h5>
+                <button type="button" class="absolute btn-close p-1 rounded border bg-orange-600"
+                    data-bs-dismiss="modal" aria-label="Close">cerrar</button>
+            </div>
+            <div class="modal-body flex justify-center align-center">
+                <div class="ml-2">
+                    <ul>
+                        <li class="max-w-xs w-fit">
+                            <img src="/uploads/<%= photo %>" alt="" class="px-3" width="100%">
+                        </li>
+                        <li>
+                            <p>
+                                Nombre: <%= nombre %>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Edad: <%= edad %>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Direccion: <%= direccion %>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Telefono: <%= phone %>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Email: <%= email %>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

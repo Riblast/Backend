@@ -1,0 +1,57 @@
+  <div class="modal fade fixed hidden inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+      <div class="modal-content mt-3 text-center">
+        <div class="modal-header flex justify-between">
+          <h5 class="modal-title" id="exampleModalLabel">Desea eliminar el producto?</h5>
+          <button type="button" class="btn-close p-1 rounded border bg-orange-600" data-bs-dismiss="modal" aria-label="Close">close</button>
+        </div>
+        <!-- <div class="modal-body">
+                <input type="number" class="form-control"  id="popo" placeholder="1" required>
+        </div> -->
+        <div class="modal-footer">
+          <button type="button" class="btn p-2 rounded border bg-orange-400" id="btnBorrar" data-bs-dismiss="modal">Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="flex flex-col w-full items-center">
+    <h2>Mi carrito</h2>
+    <% if(carrito && carrito.productos.length > 0) { %>
+      <table>
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% let total = 0 %>
+          <% carrito.productos.forEach(producto => {
+              total += producto.price * producto.cantidad %>
+            <tr>
+              <td><%= producto.title %></td>
+              <td><%= producto.cantidad %></td>
+              <td><%= producto.price %></td>
+              <td>
+                <button class="cart" id="<%= producto.id %>">Eliminar</button>
+              </td>
+            </tr>
+          <% }) %>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>Total: <%= total.toFixed(2) %></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <button id="btnComprar">Comprar</button>
+    <% } else { %>
+      <div class="m-5">El Carrito esta vacio</div>
+    <% } %>
+</div>

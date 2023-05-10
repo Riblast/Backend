@@ -1,0 +1,8 @@
+[2023-05-10T17:51:17.285] [ERROR] default - CustomError {
+  codigo: 500,
+  descripcion: 'Error guardar()',
+  detalle: MongooseError: Operation `mensajes.insertOne()` buffering timed out after 10000ms
+      at Timeout.<anonymous> (C:\Users\franc\OneDrive\Documents\Backend\Backend\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:153:23)
+      at listOnTimeout (node:internal/timers:564:17)
+      at process.processTimers (node:internal/timers:507:7)
+}
