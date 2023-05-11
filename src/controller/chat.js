@@ -59,18 +59,19 @@ const renderUserMessages = async (req, res) => {
 
 const startSocketServer = (httpServer) => {
   io.listen(httpServer)
-  io.on('connection', (socket) => {
+  io.on('connection', async (socket) => {
     console.log(`Nuevo usuario conectado: ${socket.id}`)
 
     socket.on('new-message', async (message) => {
       try {
         await mensajesDao.guardar(message)
-        io.emit('message', message)
-        socket.emit('message', message)
+        const savedMessage = await mensajesDao.listar(message._id)
+        socket.broadcast.emit('message', savedMessage)
+        socket.emit('message', savedMessage)
+        console.log(`Nuevo mensaje recibido: ${JSON.stringify(savedMessage)}`)
       } catch (error) {
         console.error('Error al guardar mensaje: ', error)
       }
-      console.log(`Nuevo mensaje recibido: ${JSON.stringify(message)}`)
     })
 
     socket.on('new-reply', async ({ messageId, reply }) => {
@@ -82,8 +83,9 @@ const startSocketServer = (httpServer) => {
           timestamp: new Date()
         })
         await mensajesDao.actualizar(messageId, message)
-        io.emit('message', message)
-        socket.emit('message', message)
+        const updatedMessage = await mensajesDao.listar(messageId)
+        socket.broadcast.emit('message', updatedMessage)
+        socket.emit('message', updatedMessage)
         console.log(`Nueva respuesta recibida: ${JSON.stringify(reply)}`)
       } catch (error) {
         console.error('Error al guardar respuesta: ', error)

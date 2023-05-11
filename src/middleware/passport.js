@@ -8,13 +8,17 @@ passport.use('login', new LocalStrategy(async (username, password, done) => {
   if (usuarios === false) done(Error('error'))
   const user = usuarios.find(usuario => usuario.email === username)
   if (!user) {
+    console.log('Usuario no encontrado')
     done(null, false)
   } else {
     if (!password) {
+      console.log('Contraseña no proporcionada')
       done(null, false)
     } else if (isValidPassword(password, user.password)) {
+      console.log('Usuario autenticado correctamente')
       done(null, user)
     } else {
+      console.log('Contraseña incorrecta')
       done(null, false)
     }
   }

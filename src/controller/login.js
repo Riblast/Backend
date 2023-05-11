@@ -4,7 +4,6 @@ import { isValidPassword } from '../utils/crypt.js'
 export const postLoginController = async (req, res, next) => {
   const usuarios = await usuariosDao.listarAll()
   const user = usuarios.find(usuario => usuario.email === req.body.email)
-
   if (!user) {
     req.session.message = 'Usario no encontrado'
   } else {

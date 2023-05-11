@@ -5,7 +5,7 @@ import getData from '../utils/userInfo.js'
 
 export const getCartController = async (req, res) => {
   if (req.isAuthenticated()) {
-    const data = await getData()
+    const data = await getData(req)
     const miCarrito = await carritosDao.findByUser(req.session.passport.user)
 
     res.render('pages/cart', {

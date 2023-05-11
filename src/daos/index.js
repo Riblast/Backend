@@ -1,5 +1,3 @@
-import OrdenesDaoMongoDb from './ordenes/ordenesDaoMongoDb.js'
-
 let productosDao
 let carritosDao
 let mensajesDao
@@ -7,19 +5,21 @@ let usuariosDao
 let ordenesDao
 
 switch ('mongoDb') {
-  case 'mongodb':
+  case 'mongoDb':
     const { default: ProductosDaoMongoDb } = await import('./productos/ProductosDaoMongoDb.js')
-    const { default: CarritosDaoMongoDb } = await import('./carritos/CarritosDaoMongoDb.js')
-    const { default: UsuariosDaoMongoDb } = await import('./usuarios/UsuariosDaoMongoDb.js')
-    const { default: MensajesDaoMongoDb } = await import('./mensajes/MensajesDaoMongoDb.js')
-    const { default: ordenesDaoMongoDb } = await import('./ordenes/OrdenesDaoMongoDb.js')
-
     productosDao = new ProductosDaoMongoDb()
+
+    const { default: CarritosDaoMongoDb } = await import('./carritos/CarritosDaoMongoDb.js')
     carritosDao = new CarritosDaoMongoDb()
+
+    const { default: UsuariosDaoMongoDb } = await import('./usuarios/UsuariosDaoMongoDb.js')
     usuariosDao = new UsuariosDaoMongoDb()
+
+    const { default: MensajesDaoMongoDb } = await import('./mensajes/MensajesDaoMongoDb.js')
     mensajesDao = new MensajesDaoMongoDb()
+
+    const { default: OrdenesDaoMongoDb } = await import('./ordenes/OrdenesDaoMongoDb.js')
     ordenesDao = new OrdenesDaoMongoDb()
-    break
 }
 
 export { productosDao, carritosDao, mensajesDao, usuariosDao, ordenesDao }

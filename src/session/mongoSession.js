@@ -1,6 +1,5 @@
-
 import MongoStore from 'connect-mongo'
-import { urlMongo, secretSessionMongo, sessionTimeout } from '../config/config.js'
+import { urlMongo, secretSessionMongo } from '../config/config.js'
 
 export const mongoSession = {
 
@@ -14,6 +13,6 @@ export const mongoSession = {
   saveUninitialized: false,
   rolling: true,
   cookie: {
-    maxAge: sessionTimeout
+    maxAge: 3600000
   }
 }
