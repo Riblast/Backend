@@ -3,7 +3,7 @@ import getData from '../utils/userInfo.js'
 
 export const getHomeController = async (req, res) => {
   if (req.isAuthenticated()) {
-    const data = await getData(req)
+    const data = await getData(req, res)
     global.productos = await productosDao.listarAll()
     res.render('pages/home', {
       nombre: data.nombre,
@@ -22,7 +22,7 @@ export const getHomeController = async (req, res) => {
 
 export const getProductController = async (req, res) => {
   if (req.isAuthenticated()) {
-    const data = await getData(req)
+    const data = await getData(req, res)
     let product
     try {
       product = await productosDao.listar(req.params.idProduct)
@@ -52,7 +52,7 @@ export const getProductController = async (req, res) => {
 
 export const getCategoryController = async (req, res) => {
   if (req.isAuthenticated()) {
-    const data = await getData(req)
+    const data = await getData(req, res)
     global.productos = await productosDao.findByCategory(req.params.categoryName)
     res.render('pages/home', {
       nombre: data.nombre,
